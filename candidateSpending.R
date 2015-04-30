@@ -4,6 +4,7 @@
 ## Read the data
 data <- read.csv('fec_2012_presidential_campaign_expenditures.csv', colClasses = 'character')
 
+## Function to compute the total spending for a given candidate
 cand_spending <- function(candidate){
         
         ## Compute total spending for candidate
@@ -15,6 +16,7 @@ cand_spending <- function(candidate){
         spending
 }
 
+## Function returning a data frame of the candidates and their total $ spent
 all_spending <- function(){
         candidates <- unique(data[, 3])
         money_spent <- vector("numeric")
@@ -56,18 +58,21 @@ xx <- barplot(money_ordered, main="Candidate Total Expenditures", ylab="Total Ex
 text(x = xx, y = money_ordered, label = round(money_ordered, 1), col = "red", pos=3, xpd=NA) ## Add labels on top of bars
 options(opt)
 dev.copy2pdf(file = "total_expenditures.pdf")
-
-## Trying to make stacked bar (REP) with unstacked bar (DEM) ...
-money_GOP <- money_ordered[2:14]
-money_DEM <- money_ordered[1]
-cands_GOP <- cands_ordered[2:14]
-money_DEM <- c(money_DEM, rep(0,12))
-qplot(x = factor(1), y = money_GOP, xlab="REP", ylab="Expenditures (in millions)", geom = "bar", fill = cands_GOP, stat="identity")
-ggsave(file="RepvsDem.pdf")
 dev.off()
 
 ## Write data frame to a CSV to be analyzed with pyROOT
 write.csv(file="candidateSpending.csv", x=df)
+
+
+
+
+## Trying to make stacked bar (REP) with unstacked bar (DEM) ...
+#money_GOP <- money_ordered[2:14]
+#money_DEM <- money_ordered[1]
+#cands_GOP <- cands_ordered[2:14]
+#money_DEM <- c(money_DEM, rep(0,12))
+#qplot(x = factor(1), y = money_GOP, xlab="REP", ylab="Expenditures (in millions)", geom = "bar", fill = cands_GOP, stat="identity")
+#ggsave(file="RepvsDem.pdf")
 
 
 

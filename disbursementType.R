@@ -6,7 +6,9 @@ library(ggplot2)
 
 ## Read the data
 data <- read.csv('Data/fec_2012_presidential_campaign_expenditures.csv', colClasses = 'character')
+candidates <- unique(data[,3])
 
+## Function to compute most common disbursement types and the total $ spent on each for a given candidate
 cand_disbursement <- function(candidate){
         
         ## Subset the candidate data
@@ -52,21 +54,7 @@ make_barplot <- function(candidate){
 }
 
 ## Make barplots for each candidate
-
-make_barplot('Obama, Barack')
-#make_barplot('Romney, Mitt')
-#make_barplot('Paul, Ron')
-#make_barplot('Gingrich, Newt')
-#make_barplot('Santorum, Rick')
-#make_barplot('Perry, Rick')
-#make_barplot('Cain, Herman')
-#make_barplot('Bachmann, Michele')
-#make_barplot('Huntsman, Jon')
-#make_barplot('Pawlenty, Timothy')
-#make_barplot('Johnson, Gary Earl')
-#make_barplot('Stein, Jill')
-#make_barplot('Roemer, Charles E. \'Buddy\' III')
-#make_barplot('McCotter, Thaddeus G')
-
-
+for (cand in candidates){
+        make_barplot(cand)
+}
 
