@@ -56,9 +56,13 @@ monthly_spending <- function(candidate){
                 monthly_spending[w] <- monthly_spending[w] + as.numeric(df[row, 3])    
         }
         
-        if (candidate == 'Romney, Mitt' || candidate == 'Huntsman, Jon'){
+        if (candidate == 'Romney, Mitt'){
                 monthly_spending <- monthly_spending[-1]
-                unique_dates <- unique_dates[-1]
+                unique_dates <- unique_dates[-c(1),]
+        }
+        if (candidate == 'Huntsman, Jon'){
+                monthly_spending <- monthly_spending[-1]
+                unique_dates <- unique_dates[-c(1),]
         }
 
         dates <- vector("character")
@@ -88,12 +92,12 @@ make_barplot <- function(candidate){
 }
 
 #-----------------------------------------------------------------------
-make_barplot('Obama, Barack')
-#make_barplot('Romney, Mitt')
-make_barplot('Santorum, Rick')
-make_barplot('Pawlenty, Timothy')
-make_barplot('Huntsman, Jon')
-make_barplot('Gingrich, Newt')
+#make_barplot('Obama, Barack')
+make_barplot('Romney, Mitt')
+#make_barplot('Santorum, Rick')
+#make_barplot('Pawlenty, Timothy')
+#make_barplot('Huntsman, Jon')
+#make_barplot('Gingrich, Newt')
 
 ## Generate plots for each candidate
 #for (cand in candidates){
