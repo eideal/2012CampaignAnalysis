@@ -1,0 +1,22 @@
+README for 2012CampaignAnalysis
+
+A look at candidate spending in the 2012 U.S. presidential election.
+
+----
+Main Output
+----
+
+All plots are in the repository's Plots/ folder. They fall under the categories:
+
+Common Disbursements_* : categories in which each candidate spends the most
+Daily Spending_*       : daily spending time series for six candidates
+Monthly Spending_*     : monthly spending for six candidates
+PartySpending          : spending stacked by party affiliation
+total_expenditures     : relative overall spending for all candidates
+
+----
+Data
+----
+
+The dataset was obtained from Mode Analytics: https://modeanalytics.com/editor/eideal/reports/e158bc36e711/runs/a0b486b7d8ac
+

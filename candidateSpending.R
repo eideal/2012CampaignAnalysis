@@ -62,18 +62,3 @@ dev.off()
 
 ## Write data frame to a CSV to be analyzed with pyROOT
 write.csv(file="candidateSpending.csv", x=df)
-
-
-
-
-## Trying to make stacked bar (REP) with unstacked bar (DEM) ...
-#money_GOP <- money_ordered[2:14]
-#money_DEM <- money_ordered[1]
-#cands_GOP <- cands_ordered[2:14]
-#money_DEM <- c(money_DEM, rep(0,12))
-#qplot(x = factor(1), y = money_GOP, xlab="REP", ylab="Expenditures (in millions)", geom = "bar", fill = cands_GOP, stat="identity")
-#ggsave(file="RepvsDem.pdf")
-
-
-
-
